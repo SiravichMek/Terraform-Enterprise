@@ -1,4 +1,5 @@
 # Data source to fetch the latest Ubuntu 24.04 AMI
+#trigger test
 data "aws_ami" "ubuntu" {
   most_recent = true
   owners      = ["099720109477"] # Canonical official AWS account
