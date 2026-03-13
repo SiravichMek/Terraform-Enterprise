@@ -1,16 +1,21 @@
-# Data source to fetch the latest Ubuntu AMI
+# Data source to fetch the latest Ubuntu 24.04 AMI
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["684018405375"] # Canonical's AWS account ID
+  owners      = ["099720109477"] # Canonical official AWS account
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-24.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-noble-24.04-amd64-server-*"]
   }
 
   filter {
     name   = "virtualization-type"
     values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
   }
 }
 
